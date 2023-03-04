@@ -1,22 +1,58 @@
 import { useState } from "react"
 import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/solid";
 import Logo from "@/assets/Logo.png";
+import Link from "./Link";
+import { SelectedPage } from "@/shared/types";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
-type Props = {}
+type Props = {
+    selectedPage: SelectedPage;
+    setSelectedPage: (value: SelectedPage) => void
+}
 
-const Navbar = (props: Props) => {
-    const flexBetween = "flex items-center jusitfy-between";
+const Navbar = ({selectedPage, setSelectedPage}: Props) => {
+    const flexBetween = "flex items-center justify-between";
+    const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+    const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
 
-  return 
+  return (
     <nav>
         <div
             className={`${flexBetween} fixed top-0 z-30 w-full py-6`}>
-            <div className={`${flexBetween} mx-auto w=5/6`}>
+            <div className={`${flexBetween} mx-auto w-5/6`}>
+                <div className={`${flexBetween} w-full gap-16`}>
+                    {/* LEFT SIDE */}
+                    <img alt="logo" src={Logo} />
 
+                    {/* RIGHT SIDE */}
+                    {isAboveMediumScreens ? (
+                    <div className={`${flexBetween} w-full`}>
+                        <div className={`${flexBetween} gap-8 text-sm`}>
+                            <Link page="HOME" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+                            <Link page="ABOUT" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+                            <Link page="SERVICES" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+                            <Link page="APPOINTMENTS" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+                            <Link page="CONTACT" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+                        </div>
+                        <div className={`${flexBetween} gap-8`}>
+                            <ActionButton setSelectedPage={setSelectedPage}>BOOK NOW</ActionButton>
+                        </div> 
+                    </div>) 
+                    : (
+                        // MOBILE SCREENS
+                        <ActionButton
+                            setSelectedPage={setSelectedPage}
+                            className="rounded-full bg-secondary-500 p-2"
+                            onClick={() => setIsMenuToggled(!isMenuToggled)}
+                        >
+                            <Bars3Icon className="h-6 w-6 text-white" />
+                        </ActionButton>
+                    )}
+                </div>
             </div>
         </div>
-
-    </nav>;
+    </nav>
+    );
 }
 
-export default Navbar
+export default Navbar;
