@@ -8,6 +8,7 @@ module.exports = {
         "gray-50": "#EFE6E6",
         "gray-100": "#DFCCCC",
         "gray-500": "#5E0000",
+        "black-100": "#202020",
         "primary-100": "#FFE1E0",
         "primary-300": "#FFA6A3",
         "primary-500": "#FF6B66",
@@ -22,6 +23,9 @@ module.exports = {
       fontFamily: {
         dmsans: ["DM Sans", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
+        fatface: ["Abril Fatface", "cursive"],
+        nanum: ["Nanum Gothic", "sans-serif"],
+        playfair: ["Playfair Display", "sans-serif"]
       },
       content: {
         evolvetext: "url('./assets/EvolveText.png')",
