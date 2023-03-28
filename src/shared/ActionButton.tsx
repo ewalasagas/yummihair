@@ -14,7 +14,7 @@ const ActionButton = ({children, setSelectedPage}: Props) => {
         href={`#${SelectedPage.Contact}`}
     >
         {children}
-    </AnchorLink>
+    </AnchorLink> 
   )
 }
 
