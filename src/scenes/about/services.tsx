@@ -2,6 +2,7 @@ import HairPhoto1 from "@/assets/hair_services1.png";
 import HairPhoto2 from "@/assets/hair_services2.png";
 import FashionPhoto1 from "@/assets/fashion1.png"; 
 import FashionPhoto2 from "@/assets/fashion2.png";
+import TitleText from "@/shared/TitleText";
 
 type Props = {};
 
@@ -20,7 +21,7 @@ const services = (props: Props) => {
             </div>
             {/* HAIR SERVICES ABOUT */}
             <div>
-                <div className="font-family: font-playfair">Professional hair services</div>
+                <TitleText>Professional hair services</TitleText>
                 <div>Yummi hair is a personal and professional hair stylist. 
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -32,7 +33,7 @@ const services = (props: Props) => {
         {/* FASHION RUNWAY SERVICES */}
         <div className="grid grid-cols-2 gap-3">
             <div>
-                <div className="font-family: font-playfair">Professional hair services</div>
+                <TitleText>Professional hair services</TitleText>
                 <div>Yummi hair is a personal and professional hair stylist. 
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna
