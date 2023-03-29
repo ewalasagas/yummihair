@@ -1,15 +1,14 @@
 import HText from "@/shared/HText";
-import { SelectedPage } from "@/shared/types"
+import { SelectedPage } from "@/shared/types";
 import {motion} from "framer-motion";
 import ReactPlayer from "react-player";
-import HairPhoto1 from "@/assets/hair_services1.png";
-import HairPhoto2 from "@/assets/hair_services2.png";
+import Services from "./services";
 
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
 };
 
-const About = (props: Props) => {
+const About = ({setSelectedPage}: Props) => {
   return (
     <section id="about" className="mx-auto min-h-full">
         <motion.div onViewportEnter={() => setSelectedPage(SelectedPage.About)}>
@@ -42,26 +41,7 @@ const About = (props: Props) => {
                     <div className="font-family: font-playfair italic">Hair <br/> makeup</div>
                 </div>
             </div>
-            
-            {/* HAIR SERVICES */}
-            <div>
-                {/* PHOTOS - will overlap and flex - clickable (can click back image and flips) */}
-                <div>
-                    <img alt="hair blonde moneybang style" src={HairPhoto1} />
-                    <img alt="two people bayalage blue and other red" src={HairPhoto2} />
-                </div>
-                {/* HAIR SERVICES ABOUT */}
-                <div>
-                    <div className="font-family: font-playfair">Professional hair services</div>
-                    <div>Yummi hair is a personal and professional hair stylist. 
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. 
-                    </div>
-                </div>
-            </div>
-
-            {/* FASHION RUNWAY SERVICES */}
+            <Services />
         </motion.div>
     </section>
   )
