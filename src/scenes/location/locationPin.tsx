@@ -1,14 +1,18 @@
 import { Icon } from '@iconify/react';
 
-type Props = {
+export type Location = {
+    lat: number;
+    lng: number;
     text: string;
 }
 
-const LocationPin = ({text}: Props) => {
+const LocationPin = ({text, lat, lng}: Location) => {
   return (
     <div>
         <Icon icon="topcoat:location" />
         <p>{text}</p>
+        <div>{lat}</div>
+        <div>{lng}</div>
     </div>
   )
 }

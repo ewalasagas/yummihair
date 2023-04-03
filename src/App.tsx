@@ -2,7 +2,8 @@ import Navbar from "@/scenes/navbar";
 import Home from "@/scenes/home";
 import About from "@/scenes/about";
 import Contact from "@/scenes/contact";
-import Location from "@/scenes/location";
+import DisplayMap from "@/scenes/location";
+import Services from "@/scenes/services";
 import {useEffect, useState} from "react";
 import { SelectedPage } from "./shared/types";
 
@@ -27,15 +28,16 @@ function App() {
 
   return (
     <div className="bg-gray-20">
-      <Navbar 
+      {/* <Navbar 
         isTopOfPage = {isTopOfPage}
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
       <Home setSelectedPage={setSelectedPage}/>
       <About setSelectedPage={setSelectedPage}/>
-      <Contact setSelectedPage={setSelectedPage} />
-      <Location />
+      <Contact setSelectedPage={setSelectedPage} /> */}
+      <Services />
+      {/* <DisplayMap /> */}
     </div>
   )
 }
