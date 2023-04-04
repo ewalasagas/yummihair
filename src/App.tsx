@@ -28,14 +28,14 @@ function App() {
 
   return (
     <div className="bg-gray-20">
-      {/* <Navbar 
+      <Navbar 
         isTopOfPage = {isTopOfPage}
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
       <Home setSelectedPage={setSelectedPage}/>
       <About setSelectedPage={setSelectedPage}/>
-      <Contact setSelectedPage={setSelectedPage} /> */}
+      <Contact setSelectedPage={setSelectedPage} />
       <Services />
       {/* <DisplayMap /> */}
     </div>
