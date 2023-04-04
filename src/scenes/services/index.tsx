@@ -2,6 +2,7 @@ import {motion} from "framer-motion";
 import TitleText from "@/shared/TitleText";
 import HText from "@/shared/HText";
 import { SelectedPage } from "@/shared/types";
+import ServicesPhoto from "@/assets/yummihair_services_background.jpg";
 
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
@@ -9,9 +10,15 @@ type Props = {
 
 const Services = ({setSelectedPage}: Props) => {
   return (
-    <section id="services" className="mx-auto w-2/3 pt-24 pb-32">
+    <section id="services" className="bg-black text-white">
+    <img src={ServicesPhoto} className="h-80 w-full object-cover"/>
+   
+    <div className="mx-auto w-2/3 pt-24 pb-32">
         <motion.div  onViewportEnter={() => setSelectedPage(SelectedPage.Services)}>
-        
+    
+    {/* IMAGE HERE - DISAPPEAR ON MOBILE */}
+
+
         <motion.div
                 className="mb-16"
                 initial="hidden"
@@ -138,6 +145,7 @@ const Services = ({setSelectedPage}: Props) => {
             </div>
             </motion.div>
         </motion.div>
+        </div>
     </section>
   )
 }
