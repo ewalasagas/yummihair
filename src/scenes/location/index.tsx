@@ -1,36 +1,43 @@
-import GoogleMapReact from "google-map-react";
+import { SelectedPage } from "@/shared/types";
+import { useRef, useState } from "react";
+import GoogleMap from "google-maps-react-markers";
 import LocationPin from "./locationPin";
 
 //TO GENERATE API KEY: 
 //https://developers.google.com/maps/documentation/maps-static/get-api-key
 
 //FOR MAPS:
-//https://www.npmjs.com/package/google-map-react
-//https://blog.logrocket.com/integrating-google-maps-react/
-const DisplayMap = () => {
-    const defaultProps = {
-      center: {
-        lat: 36.05549708055063,
-        lng: -115.25171191749692,
-      },
-      zoom: 11
-    };
-  
+//https://github.com/giorgiabosello/google-maps-react-markers
+const YUMMI_HAIR_LOCATION = {
+  lat: 36.0553366,
+  lng: -115.2538577,
+  zoom: 13,
+  label: 'YUMMI HAIR',
+  address: '7315 W Warm Springs Rd Ste 130, Las Vegas, NV 89113',
+}
+
+type Props = {
+  setSelectedPage: (value: SelectedPage) => void;
+}
+
+const DisplayMap = ({setSelectedPage}: Props) => {
+  const mapOptions = {} // TODO: Fill this out to customize Example: https://developers.google.com/maps/documentation/javascript/examples/style-array
     return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '100vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyCrOx4Pu77nCrav85qUJUI7Uldj-SALPC8'}}
-          defaultCenter={defaultProps.center}
-          defaultZoom={defaultProps.zoom}
-        >
-          <LocationPin
-            lat={59.955413}
-            lng={30.337844}
-            text='7315 W Warm Springs Rd Ste 130, Las Vegas, NV 89113'
-          />
-        </GoogleMapReact>
-      </div>
+      <>
+        <GoogleMap
+          apiKey="AIzaSyCrOx4Pu77nCrav85qUJUI7Uldj-SALPC8"
+          defaultCenter={{
+            lat: YUMMI_HAIR_LOCATION.lat,
+            lng: YUMMI_HAIR_LOCATION.lng,
+          }}
+          defaultZoom={YUMMI_HAIR_LOCATION.zoom}
+          mapMinHeight="100vh"
+          options={mapOptions}
+          
+        > 
+          <LocationPin lat={YUMMI_HAIR_LOCATION.lat} lng={YUMMI_HAIR_LOCATION.lng} text={YUMMI_HAIR_LOCATION.label} />
+        </GoogleMap>
+      </>
     )
 } 
 
